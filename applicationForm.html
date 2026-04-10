@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <form id="application-form">
+            <h1>Job Application</h1>
+
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required placeholder="John Doe">
+
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required placeholder="john@example.com">
+
+            <label for="position">Position Applied For:</label>
+            <select id="position" name="position" required>
+                <option value="">Select a position...</option>
+                <option value="developer">Software Developer</option>
+                <option value="designer">Graphic Designer</option>
+                <option value="manager">Project Manager</option>
+            </select>
+
+            <fieldset class="radio-group">
+                <legend>Availability</legend>
+                
+                <input type="radio" id="full-time" name="availability" value="full-time" required>
+                <label for="full-time">Full-Time</label>
+
+                <input type="radio" id="part-time" name="availability" value="part-time">
+                <label for="part-time">Part-Time</label>
+            </fieldset>
+
+            <label for="message">Cover Letter / Message:</label>
+            <textarea id="message" name="message" rows="5" placeholder="Tell us about yourself..."></textarea>
+
+            <button type="submit">Submit Application</button>
+        </form>
+    </div>
+</body>
+</html>
+
+CSS
+
+/* --- Base Layout --- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.container {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 1.2rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+input, select, textarea {
+    padding: 0.8rem;
+    margin-top: 0.4rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+/* --- Story 19: First Input Special Styling --- */
+input:first-of-type {
+    border-radius: 15px;
+    border-left: 5px solid #2563eb;
+}
+
+/* --- Story 11: Focus States (List Selector) --- */
+input:focus, 
+textarea:focus {
+    border-color: #2563eb;
+    outline: none;
+    box-shadow: 0 0 8px rgba(37, 99, 235, 0.3);
+}
+
+/* --- Story 12: Invalid States (List Selector) --- */
+input:invalid, 
+select:invalid, 
+textarea:invalid {
+    border-color: red;
+}
+
+/* --- Story 13: Valid States (List Selector) --- */
+input:valid, 
+select:valid, 
+textarea:valid {
+    border-color: green;
+}
+
+/* --- Stories 15, 16, 17: Radio Checked States --- */
+.radio-group input[type="radio"]:checked {
+    border: 2px solid #2563eb;
+    background-color: #dbeafe;
+    box-shadow: 0 0 8px rgba(37, 99, 235, 0.4);
+}
+
+/* --- Story 18: Radio Label Color Change --- */
+.radio-group input[type="radio"]:checked + label {
+    color: #2563eb;
+    font-weight: bold;
+}
+
+/* --- Radio Group Container --- */
+.radio-group {
+    border: 1px solid #eee;
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border-radius: 6px;
+}
+
+/* --- Stories 10 & 14: Button Styles & Hover --- */
+button[type="submit"] {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #2980b9; /* background when hovered */
+}
