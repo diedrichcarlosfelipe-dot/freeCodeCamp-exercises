@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <title>Confidential Email</title>
+</head>
+<body>
+    <main id="email">
+        <div id="confidential">CONFIDENTIAL</div>
+        <div id="top-secret">TOP SECRET</div>
+
+        <p>Subject: Operation Report - <span class="blurred">Project X</span></p>
+        
+        <p>As requested, the data regarding the <span class="blurred">secret location</span> has been transferred. 
+        The field agent confirmed that the perimeter is secure and the primary target has been identified.</p>
+        
+        <p>Extraction is scheduled for <span class="blurred">03:00 AM</span>. Destroy this document immediately after reading.</p>
+    </main>
+</body>
+</html>
+
+CSS
+
+body {
+    display: flex;
+    justify-content: center;
+    background-color: #f4f4f4;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#email {
+    /* Box Model setup */
+    box-sizing: border-box; 
+    width: 500px;
+    padding: 50px;
+    margin-top: 50px;
+    border: 2px solid #222;
+    
+    background-color: #ffffff;
+}
+
+#confidential, #top-secret {
+    display: inline-block;
+    padding: 8px;
+    margin-left: 15px;
+    border: 2px solid red;
+    color: red;
+    font-weight: bold;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+}
+
+/* Transforms for the "stamped" look */
+#confidential {
+    transform: rotate(-10deg);
+}
+
+#top-secret {
+    transform: rotate(4deg);
+}
+
+/* CSS Filter for the redacted effect */
+.blurred {
+    filter: blur(3px);
+    background-color: #eee;
+    padding: 0 4px;
+}
+
+p {
+    line-height: 1.5;
+    color: #333;
+}
