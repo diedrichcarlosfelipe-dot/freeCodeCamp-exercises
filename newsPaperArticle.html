@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Newspaper Article</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="newspaper">
+        <h1 class="name">The Tech Chronicle</h1>
+        <p class="date">April 22, 2026</p>
+        
+        <h2 class="headline">The Rapid Evolution of Neural Networks</h2>
+        <h3 class="sub-headline">How modern artificial intelligence is reshaping the way we interact with digital environments.</h3>
+        
+        <p class="author">By Alex Rivers</p>
+        
+        <p class="text">The integration of intelligent systems into our daily routines has shown remarkable results in managing complex tasks and information flow. Experts suggest that automation in software development is no longer a distant promise but a current reality that saves time and resources every single day across the globe.</p>
+        
+        <p class="text">Many developers are already noticing the benefits of using advanced algorithms that optimize code in real-time. Furthermore, the tech community has benefited from collaborative platforms that assist in bug prevention, making the development cycle more efficient and accessible for everyone involved in the industry.</p>
+    </div>
+</body>
+</html>
+
+CSS
+
+html {
+  font-size: 24px;
+}
+
+.newspaper {
+  font-size: 16px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.name {
+  font-size: 2rem;
+  font-family: 'Times New Roman', serif;
+  text-transform: uppercase;
+}
+
+.headline {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.sub-headline {
+  font-weight: 100;
+  font-size: 1.5em;
+  font-style: italic;
+}
+
+.author {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.text {
+  text-indent: 20px;
+  line-height: 2em;
+}
+
+.text::first-letter {
+  font-weight: bold;
+  font-size: 2em;
+}
+
+CSS
