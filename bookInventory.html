@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Inventory</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Book Inventory</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Category</th>
+                <th>Status</th>
+                <th>Rate</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="read">
+                <td>The Great Gatsby</td>
+                <td>F. Scott Fitzgerald</td>
+                <td>Classic</td>
+                <td><span class="status">Read</span></td>
+                <td>
+                    <span class="rate three">
+                        <span></span><span></span><span></span>
+                    </span>
+                </td>
+            </tr>
+            <tr class="in-progress">
+                <td>Dune</td>
+                <td>Frank Herbert</td>
+                <td>Sci-Fi</td>
+                <td><span class="status">In Progress</span></td>
+                <td>
+                    <span class="rate">
+                        <span></span><span></span><span></span>
+                    </span>
+                </td>
+            </tr>
+            <tr class="to-read">
+                <td>The Hobbit</td>
+                <td>J.R.R. Tolkien</td>
+                <td>Fantasy</td>
+                <td><span class="status">To Read</span></td>
+                <td>
+                    <span class="rate">
+                        <span></span><span></span><span></span>
+                    </span>
+                </td>
+            </tr>
+            <tr class="read">
+                <td>1984</td>
+                <td>George Orwell</td>
+                <td>Dystopian</td>
+                <td><span class="status">Read</span></td>
+                <td>
+                    <span class="rate two">
+                        <span></span><span></span><span></span>
+                    </span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
+
+CSS
+
+/* Configurações básicas de layout */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-family: sans-serif;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+/* 27. Todos os spans como inline-block */
+span {
+    display: inline-block;
+}
+
+/* 21-26. Seletores de atributo para as linhas (tr) */
+tr[class="read"] {
+    background-image: linear-gradient(to right, #e8f5e9, #ffffff);
+}
+
+tr[class="to-read"] {
+    background-image: linear-gradient(to right, #fff3e0, #ffffff);
+}
+
+tr[class="in-progress"] {
+    background-image: linear-gradient(to right, #e3f2fd, #ffffff);
+}
+
+/* 28-36. Seletores de atributo para os status (descendentes) */
+tr[class="read"] span[class="status"] {
+    border: 2px solid #2e7d32;
+    background-image: linear-gradient(#a5d6a7, #81c784);
+}
+
+tr[class="to-read"] span[class="status"] {
+    border: 2px solid #ef6c00;
+    background-image: linear-gradient(#ffcc80, #ffb74d);
+}
+
+tr[class="in-progress"] span[class="status"] {
+    border: 2px solid #1565c0;
+    background-image: linear-gradient(#90caf9, #64b5f6);
+}
+
+/* 37-40. Seletores para .status e classes que começam com "rate" */
+span[class="status"], 
+span[class^="rate"] {
+    height: 25px;
+    width: auto;
+    padding: 5px 10px;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 25px;
+}
+
+/* 41-47. Seletores para os spans filhos de quem começa com "rate" */
+span[class^="rate"] > span {
+    border: 1px solid #777;
+    border-radius: 50%;
+    margin: 0 2px;
+    height: 12px;
+    width: 12px;
+    background-color: #eee;
+}
+
+/* 48-53. Seletores de atributo baseados em palavras (one, two, three) */
+/* Alvo: primeiro descendente se a classe contém "one" */
+span[class~="one"] span:nth-child(1) {
+    background-image: linear-gradient(#ffeb3b, #fbc02d);
+}
+
+/* Alvo: primeiros dois descendentes se a classe contém "two" */
+span[class~="two"] span:nth-child(-n+2) {
+    background-image: linear-gradient(#ffeb3b, #fbc02d);
+}
+
+/* Alvo: os três descendentes se a classe contém "three" */
+span[class~="three"] span {
+    background-image: linear-gradient(#ffeb3b, #fbc02d);
+}
