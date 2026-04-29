@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <title>Availability Table</title>
+</head>
+<body>
+    <h1>Disponibilidade Semanal</h1>
+    
+    <table>
+        <tr>
+            <th>Horário</th>
+            <th>Segunda</th>
+            <th>Terça</th>
+        </tr>
+        <tr class="sharp">
+            <th class="time">08:00</th>
+            <td class="available-5"></td>
+            <td class="available-2"></td>
+        </tr>
+        <tr class="half">
+            <th class="time">09:00</th>
+            <td class="available-1"></td>
+            <td class="available-4"></td>
+        </tr>
+        <tr class="sharp">
+            <th class="time">10:00</th>
+            <td class="available-0"></td>
+            <td class="available-3"></td>
+        </tr>
+        <tr class="half">
+            <th class="time">11:00</th>
+            <td class="available-2"></td>
+            <td class="available-5"></td>
+        </tr>
+    </table>
+
+    <div id="legend">
+        <span>Availability</span>
+        <div id="legend-gradient"></div>
+    </div>
+</body>
+</html>
+
+CSS
+
+:root {
+  /* Variáveis de cores */
+  --color0: #eeeeee;
+  --color1: #d6e685;
+  --color2: #8cc665;
+  --color3: #44a340;
+  --color4: #1e6823;
+  --color5: #0e4419;
+
+  /* Variáveis de bordas */
+  --solid-border: 1px solid black;
+  --dashed-border: 1px dashed gray;
+}
+
+/* Aplicando cores de fundo baseadas nas classes */
+.available-0 { background-color: var(--color0); }
+.available-1 { background-color: var(--color1); }
+.available-2 { background-color: var(--color2); }
+.available-3 { background-color: var(--color3); }
+.available-4 { background-color: var(--color4); }
+.available-5 { background-color: var(--color5); }
+
+/* Estilização das bordas conforme a classe da linha */
+.sharp td {
+  border-bottom: var(--solid-border);
+}
+
+.half td {
+  border-bottom: var(--dashed-border);
+}
+
+#legend-gradient {
+  height: 20px;
+
+  background-image: linear-gradient(
+    to right,
+    var(--color0) 0%,
+    var(--color0) 16%,
+    var(--color1) 16%,
+    var(--color1) 33%,
+    var(--color2) 33%,
+    var(--color2) 50%,
+    var(--color3) 50%,
+    var(--color3) 66%,
+    var(--color4) 66%,
+    var(--color4) 83%,
+    var(--color5) 83%,
+    var(--color5) 100%
+  );
+}
+
+
+
+/* Apenas para visualização melhor (opcional) */
+table {
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+td, th {
+  padding: 15px;
+  min-width: 80px;
+}
